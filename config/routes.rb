@@ -1,4 +1,15 @@
 Footie::Application.routes.draw do
+  get "users/new"
+
+  match '/', :to => 'pages#home'
+  match '/matthew', :to => 'pages#matthew'
+  match '/mark',   :to => 'pages#mark'
+  match '/luke',    :to => 'pages#luke'
+  match '/john',    :to => 'pages#john'
+
+  
+   resources :masters
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

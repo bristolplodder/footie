@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Home:</b>
+  <%= @master.home %>
+</p>
+
+<p>
+  <b>Homescore:</b>
+  <%= @master.homescore %>
+</p>
+
+<p>
+  <b>Away:</b>
+  <%= @master.away %>
+</p>
+
+<p>
+  <b>Awayscore:</b>
+  <%= @master.awayscore %>
+</p>
+
+
+<%= link_to 'Edit', edit_master_path(@master) %> |
+<%= link_to 'Back', masters_path %>

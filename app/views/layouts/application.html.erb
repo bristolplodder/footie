@@ -1,14 +1,70 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Footie</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
+  <head>
+    <title>BLAH- BLAH | <%= @title%>  page </title>
+    <%= csrf_meta_tag %>
+	<!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->    
+    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+    <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
+    <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
+     <%= stylesheet_link_tag 'custom', :media => 'screen' %> 
+  </head>
+  <body>
+     
+     
+      <header>
+        <%= image_tag("soccer.png", :alt => "Sample App", :class => "round") %>
+      </header>
+  
+	
+	    <nav>	
+		  <li>
+            <h3>Users</h3>
+            <ul class="links">
+              <li><%= link_to "Home", '' %></li>
+              <li><%= link_to "Matthew", 'matthew' %></li>
+              <li><%= link_to "Mark", 'mark' %></li>
+           	  <li><%= link_to "Luke", 'luke' %></li>
+			  <li><%= link_to "John", 'john' %></li> 
+            </ul>
+          </li>
+	    </nav>
+        	
+		
+			
+		
+	<div id="getting-started">
+        <h1>Predictions</h1>
+          <h2>1,2,3</h2>
 
-<%= yield %>
+          <ol>
+            <li>
+              <h2>Game 1</h2>
+              <p>1-2</p>
+            </li>
 
-</body>
+            <li>
+              <h2>Game 2</h2>
+              <p>2-0</p>
+            </li>
+
+            <li>
+              <h2>Game 3</h2>
+              <p>10-10</p>
+            </li>
+          </ol>
+    </div>
+
+         
+      <section class="round">
+        <%= yield %>
+      </section>
+   
+  </body>
 </html>
+
+
+
+  

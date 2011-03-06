@@ -1,0 +1,160 @@
+.container {
+  width: 710px;
+  }
+
+body {
+  background: #ccf;
+}
+
+page {
+        background-color: #00f0f0;
+        width: 500px;
+        margin: 0;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+content {
+        float: left;
+        background-color: #060;
+        border: 3px solid #fff;
+        border-top: none;
+        padding: 25px;
+        width: 500px;
+      }
+
+
+
+/*header {
+  padding-top: 20px;
+}*/
+
+header, about, getting-started {
+        padding-left: 130px;
+        padding-right: 30px;
+      }
+
+	  
+header {
+        /*background-image: url("images/soccer.png");*/
+        background-repeat: no-repeat;
+        background-position: top left;
+        height: 75px;
+      }
+	  
+
+
+header img {
+  padding: 1em;
+  background: #0c0;
+}
+
+sidebar {
+        float: right;
+        width: 40px;
+      }
+
+	  
+sidebar ul {
+        margin-left: 0;
+        padding-left: 0;
+      }
+sidebar ul h3 {
+        margin-top: 25px;
+        font-size: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+sidebar li {
+        list-style-type: none;
+      }
+sidebar ul.links li {
+        margin-bottom: 5px;
+      }
+	  
+	  
+	  
+
+section {
+  margin-top: 1em;
+  font-size: 120%;
+  padding: 20px;
+  background: #fff;
+}
+
+h1 {
+   color: #0c0;
+   }
+   
+h2 {
+    color: red;
+	}
+
+section h1 {
+  font-size: 200%;
+  color: #0c0;
+}
+
+
+getting-started {
+        border-top: 1px solid #c00;
+        margin-top: 25px;
+        padding-top: 15px;
+		color: #090;
+}
+
+/* Navigation */
+
+nav {
+    float: right;
+	}
+
+nav {
+  background-color: #0c0;
+  padding: 0 1.5em;
+  white-space: nowrap;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style-type: none;
+/*  display: inline-block;*/
+  padding: 0.2em 0;
+}
+
+nav ul li a {
+  color: red;
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+nav ul li a:visited {
+  color: #09c;
+}
+
+nav ul li a:hover {
+  color: #09c;
+  text-decoration: underline;
+}
+
+
+
+/* Links */
+
+a {
+  color: #00c;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #069;
+}

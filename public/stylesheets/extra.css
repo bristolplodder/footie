@@ -1,0 +1,135 @@
+      
+
+      content {
+        float: left;
+        background-color: #060;
+        border: 3px solid #fff;
+        border-top: none;
+        padding: 25px;
+        width: 500px;
+      }
+
+      
+      footer {
+        clear: both;
+      }
+
+
+     
+      header h1, header h2 {margin: 0}
+      header h2 {
+        color: #fff;
+        font-weight: normal;
+        font-size: 20px;
+      }
+
+
+      about h3 {
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 20;
+      }
+
+      about-content {
+        background-color: #ffd;
+        border: 1px solid #fc0;
+        margin-left: -55px;
+        margin-right: -10px;
+      }
+      about-content table {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 10px;
+        border-collapse: collapse;
+      }
+      about-content td {
+        padding: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+      }
+      about-content td.name  {color: #555}
+      about-content td.value {color: #000}
+
+      about-content ul {
+        padding: 0;
+        list-style-type: none;
+      }
+
+      about-content.failure {
+        background-color: #fcc;
+        border: 1px solid #f00;
+      }
+      about-content.failure p {
+        margin: 0;
+        padding: 10px;
+      }
+
+
+      
+      }
+      getting-started h1 {
+        margin: 0;
+        font-size: 30px;
+      }
+      getting-started h2 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: normal;
+        color: #333;
+        margin-bottom: 25px;
+      }
+      getting-started ol {
+        margin-left: 0;
+        padding-left: 0;
+      }
+      getting-started li {
+        font-size: 18px;
+        color: #fff;
+        margin-bottom: 25px;
+      }
+      getting-started li h2 {
+        margin: 0;
+        font-weight: normal;
+        font-size: 18px;
+        color: #fff;
+      }
+      getting-started li p {
+        color: #fff;
+        font-size: 13px;
+      }
+
+
+      sidebar ul {
+        margin-left: 0;
+        padding-left: 0;
+      }
+      sidebar ul h3 {
+        margin-top: 25px;
+        font-size: 15px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #ccc;
+      }
+      sidebar li {
+        list-style-type: none;
+      }
+      sidebar ul.links li {
+        margin-bottom: 5px;
+      }
+
+	  */
+	  
+    </style>
+    <script type="text/javascript">
+      function about() {
+        info = document.getElementById('about-content');
+        if (window.XMLHttpRequest)
+          { xhr = new XMLHttpRequest(); }
+        else
+          { xhr = new ActiveXObject("Microsoft.XMLHTTP"); }
+        xhr.open("GET","rails/info/properties",false);
+        xhr.send("");
+        info.innerHTML = xhr.responseText;
+        info.style.display = 'block'
+      }
+    </script>
+

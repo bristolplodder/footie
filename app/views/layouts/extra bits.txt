@@ -1,0 +1,21 @@
+/*
+
+	<div id="page">
+      
+
+      <div id="content">
+        <div id="header">
+          <h1>Matthew's Football Predictions</h1>
+          <h2>This week's scores</h2>
+        </div>
+
+        <div id="about">
+          <h3><%= yield%></h3>
+          <div id="about-content" style="display: none"></div>
+        </div>
+
+        
+      <div id="footer">&nbsp;</div>
+    </div>
+	
+	*/

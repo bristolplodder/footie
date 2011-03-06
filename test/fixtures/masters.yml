@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  home: MyString
+  homescore: 1
+  away: MyString
+  awayscore: 1
+
+two:
+  home: MyString
+  homescore: 1
+  away: MyString
+  awayscore: 1
