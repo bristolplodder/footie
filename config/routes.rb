@@ -1,11 +1,18 @@
 Footie::Application.routes.draw do
-  get "users/new"
+  resources :users do
+    resources :predictions
+  end
+  #get "games/new"
+
+  #get "users/new"
 
   match '/', :to => 'pages#home'
-  match '/matthew', :to => 'pages#matthew'
-  match '/mark',   :to => 'pages#mark'
-  match '/luke',    :to => 'pages#luke'
-  match '/john',    :to => 'pages#john'
+  match '/signup',  :to => 'games#new'
+  match '/edit', :to => 'users#edit'
+  #match '/1', :to => 'users#1'
+  #match '/mark',   :to => 'users#mark'
+  #match '/luke',    :to => 'users#luke'
+  #match '/john',    :to => 'users#john'
 
   
    resources :masters

@@ -24,43 +24,27 @@
             <h3>Users</h3>
             <ul class="links">
               <li><%= link_to "Home", '' %></li>
-              <li><%= link_to "Matthew", 'matthew' %></li>
-              <li><%= link_to "Mark", 'mark' %></li>
-           	  <li><%= link_to "Luke", 'luke' %></li>
-			  <li><%= link_to "John", 'john' %></li> 
+              <li><%= link_to "Matthew", '1' %></li>
+              <li><%= link_to "Mark", '2' %></li>
+           	  <li><%= link_to "Luke", '3' %></li>
+			  <li><%= link_to "John", '4' %></li> 
             </ul>
           </li>
 	    </nav>
         	
 		
-			
-		
 	<div id="getting-started">
         <h1>Predictions</h1>
-          <h2>1,2,3</h2>
-
-          <ol>
-            <li>
-              <h2>Game 1</h2>
-              <p>1-2</p>
-            </li>
-
-            <li>
-              <h2>Game 2</h2>
-              <p>2-0</p>
-            </li>
-
-            <li>
-              <h2>Game 3</h2>
-              <p>10-10</p>
-            </li>
-          </ol>
+                 
+		  
     </div>
 
          
       <section class="round">
         <%= yield %>
       </section>
+	  
+<%= debug(params) if Rails.env.development? %>
    
   </body>
 </html>

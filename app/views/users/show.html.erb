@@ -1,0 +1,63 @@
+<p class="notice"><%= notice %></p>
+
+<table>
+  <tr>
+    <th>Home</th>
+    <th>Home Score</th>
+    <th>Away</th>
+    <th>Away Score</th>
+    <th></th>
+  </tr>
+
+<% @user.predictions.each do |prediction| %>
+  <tr>
+    <td><%= prediction.home %></td>
+    <td><%= prediction.home_score %></td>
+	<td><%= prediction.away %></td>
+    <td><%= prediction.away_score %></td>
+  </tr>
+<% end %>
+</table>
+
+
+
+<h2><%= @user.name %>'s predictions</h2>
+  <table>
+  <tr>
+    <th>Home</th>
+    <th>Home Score</th>
+    <th>Away</th>
+    <th>Away Score</th>
+    <th></th>
+  </tr>
+
+
+  
+    <%= form_for([@user, @user.predictions.build]) do |f| %>
+  <% @user.predictions.each do |prediction| %>
+
+  <tr>
+  <div class="field">
+   <td><%= f.text_field :home %></td>
+  </div>
+  
+  <div class="field">
+   <td><%= f.text_field :home_score %></td>
+  </div>
+  
+  <div class="field">
+   <td><%= f.text_field :away %></td>
+  </div>
+  
+  <div class="field">
+   <td><%= f.text_field :away_score %></td>
+  </div>
+  </tr>
+ <% end %> 
+  </table>
+   
+	<div class="actions">
+	<%= f.submit %>
+	</div>
+	
+<% end %> 
