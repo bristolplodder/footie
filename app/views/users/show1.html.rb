@@ -32,7 +32,8 @@
   </tr>
 
 
-    <%= form_for(@prediction.build) do |f| %>
+  
+    <%= form_for([@user, @user.predictions.build]) do |f| %>
   <% @user.predictions.each do |prediction| %>
 
   <tr>
@@ -56,7 +57,7 @@
   </table>
    
 	<div class="actions">
-	<%= f.submit "Update"%>
+	<%= f.submit %>
 	</div>
 	
 <% end %> 

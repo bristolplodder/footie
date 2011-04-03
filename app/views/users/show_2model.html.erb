@@ -32,31 +32,36 @@
   </tr>
 
 
-    <%= form_for(@prediction.build) do |f| %>
-  <% @user.predictions.each do |prediction| %>
-
-  <tr>
-  <div class="field">
-   <td><%= f.text_field :home %></td>
-  </div>
-  
-  <div class="field">
-   <td><%= f.text_field :home_score %></td>
-  </div>
-  
-  <div class="field">
-   <td><%= f.text_field :away %></td>
-  </div>
-  
-  <div class="field">
-   <td><%= f.text_field :away_score %></td>
-  </div>
-  </tr>
- <% end %> 
-  </table>
-   
-	<div class="actions">
-	<%= f.submit "Update"%>
+ <%= form_for @user do |f| %>
+  <%= f.fields_for :predictions do |p| %>
+      
+    <tr>
+    <div class="field">
+    <td>
+    <%= p.text_field :home %>
+	</td>
 	</div>
+  
+    <div class="field">
+    <td><%= p.text_field :home_score %></td>
+    </div>
+  
+    <div class="field">
+    <td><%= p.text_field :away %></td>
+    </div>
+  
+    <div class="field">
+    <td><%= p.text_field :away_score %></td>
+    </div>
+    </tr>
+    	
+	<% end %>
+	</table>
+
 	
+   	<div class="actions">
+    <%= f.submit %>
+    </div>
+	
+       
 <% end %> 

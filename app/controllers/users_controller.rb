@@ -10,6 +10,8 @@ end
 
 def show
    @user = User.find(params[:id])
+   @prediction = @user.predictions.all
+   #@predictions = @user.predictions
 end 
 
 
@@ -22,6 +24,7 @@ end
  
 def new
   @user = User.new
+  @prediction = @user.build_prediction
   respond_to do |format|
 	format.html # new.html.erb
 	format.xml  { render :xml => @user }
@@ -34,17 +37,7 @@ end
   
 def create
    @user = User.new(params[:user])
-   respond_to do |format|
-     if @user.save
-     format.html { redirect_to(@user,
-     :notice => 'Post was successfully created.') }
-     format.xml  { render :xml => @user,
-     :status => :created, :location => @user }
-     else      format.html { render :action => "new" }
-     format.xml  { render :xml => @user.errors,
-     :status => :unprocessable_entity }
-	 end
-  end   
+   @user.save ? redirect_to(user_path(@user)) : render(:action => :new)
 end  
   
 def edit
@@ -55,13 +48,9 @@ def edit
 end
   
  def update
-   @user = User.find(params[:id])
-	if @user.update_attributes(params[:user])
-     redirect_to @user
-	else
-    @title = "Edit user"
-    render 'edit'
-	end
-	 
-end
-end
+  @user = User.find(params[:id])
+  @user.update_attributes(params[:user]) ?
+    redirect_to(user_path(@user)) : render(:action => :edit)
+  end
+ 
+ end
