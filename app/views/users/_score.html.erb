@@ -1,0 +1,10 @@
+<% score = 0 %>
+<% zz =0 %>
+<% @user.predictions do |prediction| %>
+ 
+    <% if prediction.home_score =	@masterhomescore[zz].home_score and prediction.away_score = @masterawayscore[zz].away_score %>
+	 <% then score = score + 5 %>
+	 <% zz = zz +1 %>
+	 <% end %>
+<% end %>
+<% score %>

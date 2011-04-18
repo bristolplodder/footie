@@ -1,0 +1,61 @@
+<p class="notice"><%= notice %></p>
+
+<% score = 0 %>
+<% scoreboard = Hash.new %>
+<% sortscore = Hash.new %>
+<% scoreplus = 0 %>
+<% uu = 0 %>
+<% yy = 0 %>
+<% zz =0 %>
+
+<% @user.count.times do %>
+  <% yy = 0 %>
+  <tr></tr>
+  <% 13.times do %>
+	
+    <% unless @prediction[zz].home_score == nil or @prediction[zz].away_score == nil or @masterhomescore[yy].home_score == nil or @masterawayscore[yy].away_score == nil%> 
+      <% if (@prediction[zz].home_score == @prediction[zz].away_score) and (@masterhomescore[yy].home_score == @masterawayscore[yy].away_score) then scoreplus = scoreplus + 2 %>
+      <% end %>
+	
+	  <% if (@prediction[zz].home_score > @prediction[zz].away_score) and (@masterhomescore[yy].home_score > @masterawayscore[yy].away_score) then scoreplus = scoreplus + 2 %>
+      <% end %>
+	
+	  <% if (@prediction[zz].home_score < @prediction[zz].away_score) and (@masterhomescore[yy].home_score < @masterawayscore[yy].away_score) then scoreplus = scoreplus + 2 %>
+      <% end %>
+	
+	  <% if (@prediction[zz].home_score  == @masterhomescore[yy].home_score) and ( @prediction[zz].away_score == @masterawayscore[yy].away_score) then scoreplus = scoreplus + 3 %>
+      <% end %>
+		       
+    <% end %>
+    <% yy = yy +1 %>	
+    <% zz = zz + 1 %>
+  
+  <% end %>
+  <% scoreboard[@user[uu].name] = scoreplus %>
+  <% scoreplus = 0 %>
+  <% uu = uu +1 %>
+  <tr></tr>
+<% end %>
+
+<% sortscore = scoreboard.sort_by {|key, value| -value} %>
+
+<table>
+
+  <tr>
+    <th>Player</th>
+    <th>Score</th>
+  </tr>
+
+  <% sc = 0 %>
+  <% ((@user.count)-1).times do %>
+    <tr>
+    <% sc = sc +1 %>
+	<td><%= player = (sortscore[sc])[0] %></td>
+	<td><%= score = (sortscore[sc])[1] %></td>
+	</tr>
+  <% end %>
+
+
+</table>
+				
+<h2> THIS WEEK'S WINNER IS <%= (sortscore[1])[0] %> </h2>

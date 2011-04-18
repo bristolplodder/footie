@@ -1,31 +1,58 @@
 <p class="notice"><%= notice %></p>
 
 
-
-<h2><%= @user.name %>'s predictions</h2>
+<h2><%= @user.name %>'s predictions </h2>
+ 
   <table>
   <tr>
     <th>Home</th>
     <th>Home Score</th>
-    <th>Away</th>
     <th>Away Score</th>
+	<th>Away</th>
+	<th>Prediction</th>
     <th></th>
   </tr>
 
 
- <%= form_for @user do |f| %>
-  <%= f.fields_for :predictions do |p| %>
-      
-    <tr>
-    <td><%= p.text_field :home %></td>
-	<td><%= p.text_field :home_score %></td>
-    <td><%= p.text_field :away %></td>
-    <td><%= p.text_field :away_score %></td>
- 	</tr>
-    	
-	<% end %>
-	</table>
+<% score = 0 %>
+<% zz =0 %>
+<% @user.predictions.each do |prediction| %>
+
+  <% scoreplus = 0 %>
+  
+  <% unless prediction.home_score == nil or @masterhomescore[zz].home_score == nil or prediction.away_score == nil or @masterawayscore[zz].away_score == nil %>
+    <% if (prediction.home_score == prediction.away_score) and (@masterhomescore[zz].home_score == @masterawayscore[zz].away_score) then scoreplus = scoreplus + 2 %>
+    <% end %>
+  
+    <% if (prediction.home_score > prediction.away_score) and (@masterhomescore[zz].home_score > @masterawayscore[zz].away_score)then scoreplus = scoreplus + 2 %>
+    <% end %>
 	
-    <%= submit_tag %>
-       
-<% end %> 
+	<% if (prediction.home_score < prediction.away_score) and (@masterhomescore[zz].home_score < @masterawayscore[zz].away_score)then scoreplus = scoreplus + 2 %>
+    <% end %>
+	
+	<% if (prediction.home_score == @masterhomescore[zz].home_score ) and (prediction.away_score == @masterawayscore[zz].away_score) then scoreplus = scoreplus + 3 %>
+    <% end %>
+  
+  
+  <tr>
+  <% unless (@masterhome[zz].home == nil) %>
+  <td><%= @masterhome[zz].home %></td>
+  <td><%= prediction.home_score %></td>
+  <td><%= prediction.away_score %></td>
+  <td><%= @masteraway[zz].away %></td>
+  <td><%= scoreplus %></td>
+  <% end %>
+  <% end %>
+  </tr>
+ 
+  <% score = score + scoreplus %>
+  <% zz = zz +1 %>
+
+<% end %>	
+</table>
+
+
+				
+				<h3><%= link_to "edit predictions", edit_user_path(@user) %></h3>
+				
+<h2>YOUR SCORE IS <%= score %> </h2>

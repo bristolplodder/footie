@@ -1,6 +1,22 @@
 <p class="notice"><%= notice %></p>
 
-<h2><%= @user.name %>'s predictions </h2>
+
+<% score = 0 %>
+<% zz =0 %>
+<% @user.predictions.each do |prediction| %>
+ 
+    <% if prediction.home_score =	@masterhomescore[zz].home_score and prediction.away_score = @masterawayscore[zz].away_score %>
+	 <% then score = score + 5 %>
+	 <% zz = zz +1 %>
+	 <% end %>
+<% end %>
+<% score %>
+
+
+
+
+
+<h2><%= @user.name %>'s predictions -- YOUR SCORE IS <%= score %></h2>
  
   <table>
   <tr>
@@ -24,20 +40,25 @@
  <%= form_for @user do |f| %>
   <%= f.fields_for :predictions do |p| %>
   
-	 
+  
+    	 
     <tr>
-    <td><%= if @user.id !=1 then hh.pop else p.text_field :home end%></td>
+    <td><%=  hh.pop %></td>
 	<td><%= p.text_field :home_score %></td>
     <td><%= p.text_field :away_score %></td>
-	<td><%= if @user.id !=1 then aa.pop else p.text_field :away end %></td>
+	<td><%= aa.pop %></td>
  	</tr>
 	<tr></tr>
-	
 		
 	  	
 	<% end %>
 	</table>
 	
     <%= submit_tag %>
- 
+
+
+	
+	      
 <% end %>
+
+ 

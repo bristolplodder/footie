@@ -1,0 +1,35 @@
+<% @user.each do |user| %>
+  <% yy = 0 %>
+  <tr></tr>
+  <%= "user"  %><%= uu %>
+  <%= @user[uu].name %>
+    <% @prediction.each do |prediction| %>
+	
+    <% unless @prediction[zz].home_score == nil or @prediction[zz].away_score == nil or @masterhomescore[yy].home_score == nil or @masterawayscore[yy].away_score == nil%> 
+      <% if (@prediction[zz].home_score == @prediction[zz].away_score) and (@masterhomescore[yy].home_score == @masterawayscore[yy].away_score) then scoreplus = scoreplus + 2 %>
+      <% end %>
+	
+	  <% if (@prediction[zz].home_score > @prediction[zz].away_score) and (@masterhomescore[yy].home_score > @masterawayscore[yy].away_score) then scoreplus = scoreplus + 2 %>
+      <% end %>
+	
+	  <% if (@prediction[zz].home_score < @prediction[zz].away_score) and (@masterhomescore[yy].home_score < @masterawayscore[yy].away_score) then scoreplus = scoreplus + 2 %>
+      <% end %>
+	
+	  <% if (@prediction[zz].home_score  == @masterhomescore[yy].home_score) and ( @prediction[zz].away_score == @masterawayscore[yy].away_score) then scoreplus = scoreplus + 3 %>
+      <% end %>
+	
+	    
+      <%= @prediction[zz].user_id %>
+      <%= @prediction[zz].home_score %>
+      <%= @prediction[zz].away_score%>
+      <%= @masterhomescore[yy].home_score%>
+      <%= @masterawayscore[yy].away_score%>
+      <%= scoreplus%>
+      <% yy = yy +1 %>	
+      <% zz = zz + 1 %>
+    <% end %>
+    
+  <% end %>
+  <%uu = uu +1 %>
+  <tr></tr>
+<% end %>

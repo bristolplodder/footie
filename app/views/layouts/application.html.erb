@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>BLAH- BLAH | <%= @title%>  page </title>
+    <title>Prediction site | <%= @title%>  page </title>
     <%= csrf_meta_tag %>
+	<%= javascript_include_tag :defaults %>
 	<!--[if lt IE 9]>
     <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->    
@@ -12,43 +13,44 @@
      <%= stylesheet_link_tag 'custom', :media => 'screen' %> 
   </head>
   <body>
-     
-     
+      
       <header>
         <%= image_tag("soccer.png", :alt => "Sample App", :class => "round") %>
       </header>
   
-	
 	    <nav>	
-		  <li>
-            <h3>Users</h3>
-            <ul class="links">
-              <li><%= link_to "Home", '' %></li>
-              <li><%= link_to "Matthew", '1' %></li>
-              <li><%= link_to "Mark", '2' %></li>
-           	  <li><%= link_to "Luke", '3' %></li>
-			  <li><%= link_to "John", '4' %></li> 
-            </ul>
-          </li>
-	    </nav>
-        	
-		
-	<div id="getting-started">
-        <h1>Predictions</h1>
-                 
 		  
-    </div>
-
-         
+            <h3>Users </h3>
+			<ul class="links">
+              <li><%= link_to "Home", users_path %></li>
+			  <% unless @users.nil? %>
+			    <% @users.each do |user| %>	
+			      <li><%= link_to user.name, user %>
+				   <%= link_to "delete", user, :method => :delete, :confirm => "You sure?",
+                                :title => "Delete #{user.name}" %>
+								
+					
+				<% end %>
+				
+				
+			  <h3>New User</h3>
+			  <li><%= link_to "New", new_path %></li>
+			  
+			  <h3>Scoreboard</h3>
+			  <li><%= link_to "Scoreboard", scoreboard_path %></li>
+			   
+			  
+			  <% end %>			  
+            </ul>
+	    </nav>
+      
+        <h1>Matthew's predictomatic website</h1>  
+             
       <section class="round">
         <%= yield %>
       </section>
 	  
-<%= debug(params) if Rails.env.development? %>
+<%#= debug(params) if Rails.env.development? %>
    
   </body>
 </html>
-
-
-
-  

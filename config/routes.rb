@@ -9,6 +9,8 @@ Footie::Application.routes.draw do
   match '/', :to => 'pages#home'
   match '/signup',  :to => 'games#new'
   match '/edit', :to => 'users#edit'
+  match '/new', :to => 'users#new'
+  match '/scoreboard', :to => 'users#scoreboard'
   #match '/1', :to => 'users#1'
   #match '/mark',   :to => 'users#mark'
   #match '/luke',    :to => 'users#luke'
